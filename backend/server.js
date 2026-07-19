@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { pool } from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import interviewRoutes from "./routes/interviewRoutes.js";
+import sessionRoutes from "./routes/sessionRoutes.js";
 
 dotenv.config();
 
@@ -26,6 +27,8 @@ app.get("/api/db-check", async (req, res) => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api/interview", interviewRoutes);
+app.use("/api/sessions", sessionRoutes);
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
