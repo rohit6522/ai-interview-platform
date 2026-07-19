@@ -7,7 +7,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Interview from "./pages/Interview";
 import Summary from "./pages/Summary";
 import Dashboard from "./pages/Dashboard";
-
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -16,6 +16,8 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="*" element={<NotFound />} />
+
         <Route
           path="/select-role"
           element={
@@ -52,6 +54,8 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        
       </Routes>
     </BrowserRouter>
   );
