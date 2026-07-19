@@ -5,6 +5,9 @@ import Login from "./pages/Login";
 import RoleSelect from "./pages/RoleSelect";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Interview from "./pages/Interview";
+import Summary from "./pages/Summary";
+import Dashboard from "./pages/Dashboard";
+
 
 function App() {
   return (
@@ -28,6 +31,24 @@ function App() {
           element={
             <ProtectedRoute>
               <Interview />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/summary"
+          element={
+            <ProtectedRoute>
+              <Summary />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
             </ProtectedRoute>
           }
         />
