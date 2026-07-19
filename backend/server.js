@@ -1,6 +1,8 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import { pool } from "./config/db.js";
+
 
 dotenv.config();
 
@@ -10,6 +12,15 @@ app.use(express.json());
 
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok", message: "Backend is running 🚀" });
+});
+
+app.get("/api/db-check", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT NOW()");
+    res.json({ dbTime: result.rows[0] });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 const PORT = process.env.PORT || 5000;
